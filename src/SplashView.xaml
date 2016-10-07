@@ -1,0 +1,23 @@
+﻿<Window x:Class="sideline.SplashView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sideline"
+        mc:Ignorable="d"
+        Title="SplashView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="800*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Image Source="images/splash_bkg.png" Stretch="UniformToFill" Grid.ColumnSpan="2" Margin="0,0,0.333,0.333" Grid.RowSpan="2" />
+
+        <Image Source="images/sideline_logo.png" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20.333,40.333" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

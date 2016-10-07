@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\github\sideline\sideline\sideline\obj\Debug\
+D:\github\sideline\src\obj\Debug\
 sideline
 none
 false
 DEBUG;TRACE
-D:\github\sideline\sideline\sideline\App.xaml
-11151548125
+D:\github\sideline\src\App.xaml
+2564155051
 
-91342831231
+101847163150
 13738642453
-MainWindow.xaml;
+MainWindow.xaml;SplashView.xaml;
 
-True
+False
 
