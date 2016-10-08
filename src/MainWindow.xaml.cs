@@ -1,28 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace sideline
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnRecordMatch_Click(object sender, RoutedEventArgs e)
+        {
+            var recordView = new views.RecordView();
+            recordView.Show();
+        }
+
+        private void BtnTeams_Click(object sender, RoutedEventArgs e)
+        {
+            var teamsView = new views.TeamsView();
+            teamsView.Show();
+        }
+
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            var historyView = new views.HistoryView();
+            historyView.Show();
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsView = new views.SettingsView();
+            settingsView.Show();
+        }
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

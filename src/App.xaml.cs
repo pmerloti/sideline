@@ -6,34 +6,54 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace sideline
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        views.SplashView splashView = new views.SplashView();
+        MainWindow mainView = new MainWindow();
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledException);
 
+            const bool showSplash = true;
 
-            var splashView = new SplashView();
+            if (showSplash)
+            {
+                splashView.Show();
 
-            splashView.WindowStartupLocation = WindowStartupLocation.Manual;
-            splashView.Show();
+                timer.Interval = TimeSpan.FromSeconds(3);
+                timer.Tick += TimerShowMain;
 
-            Thread.Sleep(2000);
+                timer.Start();
+            }
+            else
+                mainView.Show();
 
-            var mainView = new MainWindow();
+        }
 
-            splashView.Close();
-
+        private void TimerShowMain(object sender, EventArgs e)
+        {
+            timer.Stop();
+            timer.Tick -= TimerShowMain;
 
             mainView.Show();
 
+            timer.Tick += TimerCloseSplash;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+        }
+
+        private void TimerCloseSplash(object sender, EventArgs e)
+        {
+            timer.Stop();
+
+            splashView.Close();
         }
 
         void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)

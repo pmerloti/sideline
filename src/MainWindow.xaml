@@ -5,8 +5,127 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sideline"
         mc:Ignorable="d"
+        Opacity="1"
+        AllowsTransparency="True"
+        IsHitTestVisible="True"
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:01" Storyboard.TargetProperty="Opacity" To="1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Window.Resources>
+        <Style x:Key="Flat" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="16,3,16,3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#333333" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="{x:Null}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#f5e701" />
+                                <Setter Property="BorderBrush" Value="#f5e701"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="308*"/>
+            <RowDefinition Height="595*"/>
+            <RowDefinition Height="171*"/>
+        </Grid.RowDefinitions>
         
+        <Image Source="images/main_bkg.png" Stretch="UniformToFill" Grid.RowSpan="3" Margin="0,0,0.334,0.333" Grid.ColumnSpan="2" />
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="85*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource Flat}" Click="BtnRecordMatch_Click">
+                <Image Source="images/icon_record.png" Width="120" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnRecordMatch_Click">
+                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10"
+                        Foreground="#d8d8d8">
+                    Record Match
+                </Label>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource Flat}" Click="BtnTeams_Click">
+                <Image Source="images/icon_teams.png" Width="120" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnTeams_Click">
+                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10"
+                        Foreground="#bbbbbb">
+                    Teams
+                </Label>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource Flat}" Click="BtnHistory_Click">
+                <Image Source="images/icon_history.png" Width="120"/>
+            </Button>
+            <Button Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnHistory_Click">
+                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10" 
+                        Foreground="#d8d8d8">
+                    History
+                </Label>
+            </Button>
+        </Grid>
+
+        <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Width="150" Margin="10" Style="{StaticResource Flat}" Click="BtnSettings_Click">
+            <Image Source="images/icon_settings.png"/>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Width="150" Margin="10" Style="{StaticResource Flat}" Click="BtnExit_Click">
+            <Image Source="images/icon_exit.png"/>
+        </Button>
     </Grid>
 </Window>

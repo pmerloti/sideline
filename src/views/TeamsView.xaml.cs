@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace sideline
+namespace sideline.views
 {
     /// <summary>
-    /// Interaction logic for SplashView.xaml
+    /// Interaction logic for TeamsView.xaml
     /// </summary>
-    public partial class SplashView : Window
+    public partial class TeamsView : Window
     {
-        public SplashView()
+        public TeamsView()
         {
             InitializeComponent();
         }

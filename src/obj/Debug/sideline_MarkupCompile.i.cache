@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\github\sideline\src\App.xaml
-2564155051
+6598784422
 
-101847163150
+14-1976178721
 13738642453
-MainWindow.xaml;SplashView.xaml;
+MainWindow.xaml;views\HistoryView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
 
-False
+True
 
