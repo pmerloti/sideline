@@ -8,7 +8,7 @@
         Opacity="1"
         AllowsTransparency="True"
         IsHitTestVisible="True"
-        Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Closing="Window_Closing">
 
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">

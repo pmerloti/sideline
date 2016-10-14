@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sideline"
         mc:Ignorable="d"
-        
+       
         AllowsTransparency="True"
         Opacity="0" 
-        Title="SplashView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded">
+        Title="SplashView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" ShowInTaskbar="False" Closing="Window_Closing">
     
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
