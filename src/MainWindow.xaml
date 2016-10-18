@@ -8,6 +8,7 @@
         Opacity="1"
         AllowsTransparency="True"
         IsHitTestVisible="True"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None" Closing="Window_Closing">
 
     <Window.Triggers>
@@ -27,7 +28,6 @@
             <Setter Property="BorderBrush" Value="{x:Null}"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="16,3,16,3"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -63,7 +63,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="17*"/>
@@ -76,7 +76,7 @@
         
         <Image Source="images/main_bkg.png" Stretch="UniformToFill" Grid.RowSpan="3" Margin="0,0,0.334,0.333" Grid.ColumnSpan="2" />
 
-        <Grid Grid.Column="1" Grid.Row="1" Margin="50">
+        <Grid Grid.Column="1" Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="85*"/>
@@ -90,30 +90,30 @@
             </Grid.RowDefinitions>
 
             <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource Flat}" Click="BtnRecordMatch_Click">
-                <Image Source="images/icon_record.png" Width="120" />
+                <Image Source="images/icon_record.png" Width="100" />
             </Button>
             <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnRecordMatch_Click">
-                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10"
+                <Label  FontSize="80" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" 
                         Foreground="#d8d8d8">
                     Record Match
                 </Label>
             </Button>
 
             <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource Flat}" Click="BtnTeams_Click">
-                <Image Source="images/icon_teams.png" Width="120" />
+                <Image Source="images/icon_teams.png" Width="100" />
             </Button>
             <Button Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnTeams_Click">
-                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10"
+                <Label  FontSize="80" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10"
                         Foreground="#bbbbbb">
                     Teams
                 </Label>
             </Button>
 
             <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource Flat}" Click="BtnHistory_Click">
-                <Image Source="images/icon_history.png" Width="120"/>
+                <Image Source="images/icon_history.png" Width="100"/>
             </Button>
             <Button Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Left" Style="{StaticResource Flat}" Click="BtnHistory_Click">
-                <Label  FontSize="120" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10" 
+                <Label  FontSize="80" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Margin="10" 
                         Foreground="#d8d8d8">
                     History
                 </Label>

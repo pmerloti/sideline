@@ -7,6 +7,7 @@ namespace sideline
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void BtnRecordMatch_Click(object sender, RoutedEventArgs e)
@@ -38,6 +39,10 @@ namespace sideline
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
         }
     }

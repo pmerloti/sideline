@@ -6,8 +6,73 @@
         xmlns:local="clr-namespace:sideline.views"
         mc:Ignorable="d"
         Title="TeamsView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="Flat" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#333333" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="{x:Null}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#f5e701" />
+                                <Setter Property="BorderBrush" Value="#f5e701"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <Label>Teams View</Label>
+        <Image Stretch="UniformToFill" Grid.RowSpan="3" Margin="0,0,0.334,0.333" Grid.ColumnSpan="2" Source="/sideline;component/images/grey_bkg.png" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="81*"/>
+                <RowDefinition Height="981*"/>
+            </Grid.RowDefinitions>
+            <Image Stretch="UniformToFill" Grid.RowSpan="3" Margin="0,0,0.333,0.333" Source="/sideline;component/images/big_dialog_bkg.png" />
+
+            <Viewbox Grid.Row="1" HorizontalAlignment="Left" Margin="30,0,0,0">
+                <Label FontFamily="/sideline;component/fonts/#Squada One" FontSize="72" Foreground="#333333" >TEAMS</Label>
+            </Viewbox>
+            <Viewbox Grid.Row="1" HorizontalAlignment="Right" Margin="30,5,30,5">
+                <Button Style="{StaticResource Flat}" Width="100" Click="Button_Click">
+                    <Label  FontSize="72" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center" Foreground="#333333">
+                        +
+                    </Label>
+                </Button>
+            </Viewbox>
+
+        </Grid>
+
+
 
     </Grid>
 </Window>

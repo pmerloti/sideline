@@ -23,3 +23,5 @@ D:\github\sideline\src\obj\Debug\views\TeamsView.g.cs
 D:\github\sideline\src\obj\Debug\views\HistoryView.baml
 D:\github\sideline\src\obj\Debug\views\SettingsView.baml
 D:\github\sideline\src\obj\Debug\views\TeamsView.baml
+D:\github\sideline\src\bin\Debug\Newtonsoft.Json.dll
+D:\github\sideline\src\bin\Debug\Newtonsoft.Json.xml

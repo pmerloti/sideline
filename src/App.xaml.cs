@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using sideline.models;
+using System;
+using System.IO;
 using System.Windows;
-using System.Windows.Threading;
+using Newtonsoft.Json;
 
 namespace sideline
 {
@@ -20,6 +16,35 @@ namespace sideline
         {
             base.OnStartup(e);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledException);
+
+
+            //DEBUG
+            //Season season = new Season()
+            //{
+            //    Name = "2016 Fall Season"
+            //};
+
+            //Team t = new Team()
+            //{
+            //    TeamName = "Tigers",
+            //    LongName = "Fury Indoor Girls Tigers Squad",
+            //    Gender = "Girls",
+            //    Mascot = "Jaguar",
+            //    OverallRecordOverride = "5-4"
+            //};
+
+            //TeamSeason ts = new TeamSeason(t, season)
+            //{
+            //    AgeBracket = "14U",
+            //    HeadCoach = "Oscar Munoz",
+            //    AssistantCoach = "Briana Gonzalez",
+            //    Colors = "White/Blue"
+            //};
+            
+            //var path = Path.Combine(CommonConfig.TeamsFolder, ts.GetUniqueName() + ".json");
+            //string json = JsonConvert.SerializeObject(ts, Formatting.Indented);
+            //File.WriteAllText(path, json);
+            //DEBUG
 
             mainView.Show();
         }
