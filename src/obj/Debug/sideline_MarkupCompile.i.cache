@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\github\sideline\src\obj\Debug\
+D:\git\sideline\src\obj\Debug\
 sideline
 none
 false
 DEBUG;TRACE
-D:\github\sideline\src\App.xaml
+D:\git\sideline\src\App.xaml
 6598784422
 
-201004644098
-15-296359909
+20-1244814103
+152023785525
 MainWindow.xaml;views\HistoryView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
 
 True

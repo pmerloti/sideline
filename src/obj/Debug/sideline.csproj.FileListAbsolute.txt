@@ -25,3 +25,6 @@ D:\github\sideline\src\obj\Debug\views\SettingsView.baml
 D:\github\sideline\src\obj\Debug\views\TeamsView.baml
 D:\github\sideline\src\bin\Debug\Newtonsoft.Json.dll
 D:\github\sideline\src\bin\Debug\Newtonsoft.Json.xml
+D:\git\sideline\src\bin\Debug\sideline.exe.config
+D:\git\sideline\src\obj\Debug\sideline.exe
+D:\git\sideline\src\obj\Debug\sideline.pdb
