@@ -1,0 +1,88 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="sideline.ToggleTeamButton"
+	x:Name="toggleTeamButton"
+	d:DesignWidth="266" d:DesignHeight="69">
+	<UserControl.Resources>
+		<ControlTemplate x:Key="ToggleTeamControlTemplate" TargetType="{x:Type ToggleButton}">
+			<Grid>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CheckStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition GeneratedDuration="0:0:0.1" To="Checked"/>
+							<VisualTransition GeneratedDuration="0:0:0.1" To="Unchecked"/>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Checked">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="knob">
+									<EasingDoubleKeyFrame KeyTime="0" Value="198.87"/>
+								</DoubleAnimationUsingKeyFrames>
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="OffText">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+								</ObjectAnimationUsingKeyFrames>
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="OnText">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Unchecked">
+							<Storyboard>
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="OffText">
+									<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Indeterminate"/>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+				<Canvas x:Name="toggle_team" ClipToBounds="True" HorizontalAlignment="Left" Height="69" UseLayoutRounding="False" VerticalAlignment="Top" Width="266" Margin="0,0,-190.913,-49.04">
+					<Canvas x:Name="individual_stats" Height="60" Canvas.Left="4" Canvas.Top="5" Width="260">
+						<Rectangle x:Name="background" Height="60" Width="260" RadiusX="30" RadiusY="30" ClipToBounds="False">
+							<Rectangle.Fill>
+								<SolidColorBrush Color="#a1a1a1" Opacity="1"/>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle x:Name="sliderBkg" Canvas.Top="5" Canvas.Left="5" Height="50" Width="250" RadiusX="25" RadiusY="25" ClipToBounds="False" >
+							<Rectangle.Effect>
+								<DropShadowEffect BlurRadius="4" Color="#FFC44444" ShadowDepth="2" Direction="-90" Opacity="0.4"/>
+							</Rectangle.Effect>
+							<Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding Path=BackgroundColor, ElementName=toggleTeamButton, FallbackValue=Red}" Opacity="1"/>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Path x:Name="knob" Data="F1M21.5,2C32.269,2 41,10.73 41,21.5 41,32.27 32.269,41 21.5,41 10.73,41 2,32.27 2,21.5 2,10.73 10.73,2 21.5,2z" Height="42" Canvas.Left="9" Canvas.Top="7" Width="42" RenderTransformOrigin="0.5,0.5">
+							<Path.Effect>
+								<DropShadowEffect BlurRadius="3" Color="Black" Direction="-90" Opacity="0.455" ShadowDepth="3"/>
+							</Path.Effect>
+							<Path.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#99FFFFFF" Offset="0"/>
+									<GradientStop Color="White" Offset="1"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+							<Path.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+						<TextBlock x:Name="OnText" Foreground="#FF3D3549" FontSize="24" FontFamily="Calibri" LineStackingStrategy="BlockLineHeight" Canvas.Left="60" LineHeight="24" TextAlignment="Left" TextWrapping="Wrap" Text="ON" Canvas.Top="21"/>
+						<TextBlock x:Name="OffText" Foreground="#FF3D3549" FontSize="24" FontFamily="Calibri" LineStackingStrategy="BlockLineHeight" Canvas.Right="60" LineHeight="24" TextAlignment="Right" TextWrapping="Wrap" Text="OFF" Canvas.Top="21"/>
+					</Canvas>
+				</Canvas>
+				
+			</Grid>
+		</ControlTemplate>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<ToggleButton Content="ToggleButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="19.96" Width="75.087" Template="{DynamicResource ToggleTeamControlTemplate}" IsChecked="{Binding IsOn, ElementName=UserControl, Mode=TwoWay}"/>
+	</Grid>
+</UserControl>

@@ -15,6 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,6 +40,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -46,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,8 +73,16 @@
     <Compile Include="models\Team.cs" />
     <Compile Include="models\TeamPlayer.cs" />
     <Compile Include="models\TeamSeason.cs" />
+    <Compile Include="ToggleTeamButton.xaml.cs">
+      <DependentUpon>ToggleTeamButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="viewmodels\DelegateCommand.cs" />
+    <Compile Include="viewmodels\ObservableObject.cs" />
     <Compile Include="views\HistoryView.xaml.cs">
       <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\PreGameView.xaml.cs">
+      <DependentUpon>PreGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\RecordView.xaml.cs">
       <DependentUpon>RecordView.xaml</DependentUpon>
@@ -97,7 +108,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ToggleTeamButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="views\HistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\PreGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,13 +156,20 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="fonts\SquadaOne-Regular.ttf" />
-    <None Include="app.manifest" />
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="toggle_team_Images\bkg copy.png" />
+    <Resource Include="toggle_team_Images\slider copy.png" />
+    <Resource Include="views\toggle_team_Images\bkg copy.png" />
+    <Resource Include="views\toggle_team_Images\Image.png" />
+    <Resource Include="views\toggle_team_Images\slider copy.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -177,6 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\big_dialog_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\divider_pixel_template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\debug_buttons.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
