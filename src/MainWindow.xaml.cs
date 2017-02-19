@@ -12,8 +12,8 @@ namespace sideline
 
         private void BtnRecordMatch_Click(object sender, RoutedEventArgs e)
         {
-            var recordView = new views.RecordView();
-            recordView.Show();
+            var preGameView = new views.PreGameView();
+            preGameView.Show();
         }
 
         private void BtnTeams_Click(object sender, RoutedEventArgs e)
