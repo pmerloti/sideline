@@ -17,6 +17,8 @@ namespace sideline
             base.OnStartup(e);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledException);
 
+            PersistentModel db = new PersistentModel();
+            db.Create(@"D:\git\sideline\src\bin\Debug\data");
 
             //DEBUG
             //Season season = new Season()

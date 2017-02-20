@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\git\sideline\src\App.xaml
-6598784422
+8-418752969
 
-20-1244814103
-152023785525
-MainWindow.xaml;views\HistoryView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
+2445052737
+17-1587931409
+MainWindow.xaml;ToggleTeamButton.xaml;views\HistoryView.xaml;views\PreGameView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
 
-True
+False
 

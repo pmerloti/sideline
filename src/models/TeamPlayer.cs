@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace sideline.models
 {
-    class TeamPlayer
+    public class TeamPlayer
     {
         public Guid Id { get; set; }
         public string JerseyNumber { get; set; }
-        public Team Team { get; set; }
-        public Player Player { get; set; }
-        public int Age { get; set; }
+        public TeamSquad Squad { get; set; }
+        public Athlete Player { get; set; }
+        public string School { get; set; }
         public string Grade { get; set; }
         public string Position { get; set; }
-        public double HeightMeters { get; set; }
-        public double WeightKilos { get; set; }
-        public double NoJumpHeightMeters { get; set; }
-        public double SpikeHeightMeters { get; set; }
-        public double BlockHeightMeters { get; set; }
-        public string School { get; set; }
+        public double Height_m { get; set; }
+        public double Weight_kg { get; set; }
+        public double NoJumpHeight_m { get; set; }
+        public double SpikeHeight_m { get; set; }
+        public double BlockHeight_m { get; set; }
         public string PhotoPath { get; set; }
     }
 }

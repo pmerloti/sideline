@@ -68,11 +68,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommonConfig.cs" />
-    <Compile Include="models\Player.cs" />
-    <Compile Include="models\Season.cs" />
-    <Compile Include="models\Team.cs" />
+    <Compile Include="models\Athlete.cs" />
+    <Compile Include="models\PersistentModel.cs" />
+    <Compile Include="models\Organization.cs" />
     <Compile Include="models\TeamPlayer.cs" />
-    <Compile Include="models\TeamSeason.cs" />
+    <Compile Include="models\TeamSquad.cs" />
     <Compile Include="ToggleTeamButton.xaml.cs">
       <DependentUpon>ToggleTeamButton.xaml</DependentUpon>
     </Compile>
