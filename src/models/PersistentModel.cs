@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace sideline.models
 {
-    public class PersistentModel
+    public static class PersistentModel
     {
-        public string StoragePath { get; private set; }
+        public static string StoragePath { get; private set; }
 
-        public List<Athlete> Athletes { get; private set; }
-        public List<Organization> Organizations { get; private set; }
+        public static List<Athlete> Athletes { get; private set; }
+        public static List<Organization> Organizations { get; private set; }
 
-        public void Create(string path)
+        public static void Create(string path)
         {
             if (!Directory.Exists(path))
                 throw new ArgumentException("Storage path is invalid.");
@@ -27,14 +27,14 @@ namespace sideline.models
 
         }
 
-        private void LoadOrganizations()
+        private static void LoadOrganizations()
         {
             string filePath = GetFileName("Organizations");
 
             Organizations = new List<Organization>();
 
 
-
+/*
             var fury = new Organization()
             {
                 Id = Guid.NewGuid(),
@@ -77,7 +77,7 @@ namespace sideline.models
                 new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             File.WriteAllText(filePath, output);
 
-
+    */
 
 
 
@@ -93,7 +93,7 @@ namespace sideline.models
             }
         }
 
-        private void LoadAthletes()
+        private static void LoadAthletes()
         {
             string filePath = GetFileName("Athletes");
 
@@ -108,7 +108,7 @@ namespace sideline.models
             }
         }
 
-        private string GetFileName(string entityName)
+        private static string GetFileName(string entityName)
         {
             return Path.Combine(StoragePath, entityName + ".json");
         }

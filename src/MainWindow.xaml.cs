@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using sideline.models;
+using sideline.viewmodels;
+using System.Windows;
 
 namespace sideline
 {
@@ -12,7 +14,8 @@ namespace sideline
 
         private void BtnRecordMatch_Click(object sender, RoutedEventArgs e)
         {
-            var preGameView = new views.PreGameView();
+            var orgs = PersistentModel.Organizations;
+            var preGameView = new views.PreGameView(new OrganizationVM(ref orgs));
             preGameView.Show();
         }
 

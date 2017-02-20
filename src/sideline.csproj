@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="viewmodels\DelegateCommand.cs" />
     <Compile Include="viewmodels\ObservableObject.cs" />
+    <Compile Include="viewmodels\OrganizationVM.cs" />
     <Compile Include="views\HistoryView.xaml.cs">
       <DependentUpon>HistoryView.xaml</DependentUpon>
     </Compile>
