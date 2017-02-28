@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sideline.views"
+        xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         xmlns:sideline="clr-namespace:sideline" x:Class="sideline.views.PreGameView"
         mc:Ignorable="d"
         Title="PreGameView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
@@ -89,16 +90,15 @@
 				</Grid.ColumnDefinitions>
 
 				<Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Home"/>
-				<ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="0" VerticalContentAlignment="Center" >
-					<ComboBoxItem Content="Fury Cheetahs"/>
-					<ComboBoxItem Content="Fury Tigers"/>
-					<ComboBoxItem Content="Fury Jaguars"/>
+				<ComboBox Grid.Column="1" Grid.Row="0" 
+                          ItemsSource="{Binding Path=Squads}" DisplayMemberPath="Item1" SelectedValuePath="Item2" SelectedValue="{Binding Path=HomeSquad}"
+                          diag:PresentationTraceSources.TraceLevel="High"
+                          HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="0" VerticalContentAlignment="Center" >
 				</ComboBox>
 				<Label Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Away"/>
-				<ComboBox Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="1" VerticalContentAlignment="Center" >
-					<ComboBoxItem Content="Fury Cheetahs"/>
-					<ComboBoxItem Content="Fury Tigers"/>
-					<ComboBoxItem Content="Fury Jaguars"/>
+				<ComboBox Grid.Column="3" Grid.Row="0" 
+                          ItemsSource="{Binding Path=Squads}" DisplayMemberPath="Item1" SelectedValuePath="Item2" SelectedValue="{Binding Path=AwaySquad}"
+                          HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="1" VerticalContentAlignment="Center" >
 				</ComboBox>
 				<sideline:ToggleTeamButton Grid.Column="1" Grid.Row="1" BackgroundColor="Blue"/>
 			</Grid>
@@ -124,7 +124,7 @@
 						<TextBox Width="250" Height="70"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Calibri" FontSize="36" Text="Oct. 22, 2016"/>
 					</StackPanel>
 
-					<Image Grid.Column="1" Margin="0,15,0,10" HorizontalAlignment="Right" Source="/sideline;component/images/debug_buttons.png"/>
+					<Image Grid.Column="1" Margin="0,15,0,10" HorizontalAlignment="Right" Source="/sideline;component/images/debug_buttons.png" MouseDown="Image_MouseDown"/>
 
 
 				</Grid>
