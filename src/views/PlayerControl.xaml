@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="sideline.views.PlayerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:sideline.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Grid>
+        <!-- HOME PLAYER -->
+        <Grid>
+            <Ellipse Stroke="#FF002B60" StrokeThickness="3" >
+                <Ellipse.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="20" ShadowDepth="2" Opacity="0.5"/>
+                </Ellipse.Effect>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF2A89FF" Offset="0"/>
+                        <GradientStop Color="#FF0D72EE" Offset="1"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Label Content="23" HorizontalAlignment="Center" FontSize="58" Foreground="#e8e8e8" VerticalAlignment="Center" FontFamily="/sideline;component/fonts/#Squada One" />
+
+        </Grid>
+
+        <!-- GUEST PLAYER -->
+        <Grid>
+            
+        </Grid>
+    </Grid>
+</UserControl>

@@ -17,7 +17,7 @@ namespace sideline
             base.OnStartup(e);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledException);
 
-            PersistentModel.Create(@"D:\git\sideline\src\bin\Debug\data");
+            PersistentModel.Create(@"D:\github\sideline\src\bin\Debug\data");
 
             
             //var path = Path.Combine(CommonConfig.TeamsFolder, ts.GetUniqueName() + ".json");

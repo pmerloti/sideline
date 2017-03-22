@@ -5,135 +5,190 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sideline.views"
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
-        xmlns:sideline="clr-namespace:sideline" x:Class="sideline.views.PreGameView"
+        xmlns:sideline="clr-namespace:sideline" 
+        xmlns:views="clr-namespace:sideline.views"
+        x:Class="sideline.views.PreGameView"
         mc:Ignorable="d"
         Title="PreGameView" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
     <Window.Resources>
         <Style x:Key="Flat" TargetType="{x:Type Button}">
-        	<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        	<Setter Property="Background" Value="{x:Null}"/>
-        	<Setter Property="BorderBrush" Value="{x:Null}"/>
-        	<Setter Property="HorizontalContentAlignment" Value="Center"/>
-        	<Setter Property="VerticalContentAlignment" Value="Center"/>
-        	<Setter Property="Template">
-        		<Setter.Value>
-        			<ControlTemplate TargetType="{x:Type Button}">
-        				<Border x:Name="Chrome"
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Chrome"
         					Background="{TemplateBinding Background}"
         					BorderBrush="{TemplateBinding BorderBrush}"
         					BorderThickness="{TemplateBinding BorderThickness}"
         					SnapsToDevicePixels="true">
-        					<ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
+                            <ContentPresenter x:Name="Presenter" Margin="{TemplateBinding Padding}"
         						VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
         						HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
         						RecognizesAccessKey="True"
         						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-        				</Border>
-        				<ControlTemplate.Triggers>
-        					<Trigger Property="IsEnabled" Value="false">
-        						<Setter Property="Foreground" Value="#333333" />
-        					</Trigger>
-        					<Trigger Property="IsMouseOver" Value="True">
-        						<Setter Property="Background" Value="{x:Null}" />
-        						<Setter Property="BorderBrush" Value="{x:Null}" />
-        						<Setter Property="Foreground" Value="{x:Null}" />
-        					</Trigger>
-        					<Trigger Property="IsPressed" Value="True">
-        						<Setter Property="Background" Value="#f5e701" />
-        						<Setter Property="BorderBrush" Value="#f5e701"/>
-        						<Setter Property="Foreground" Value="#ffffff"/>
-        					</Trigger>
-        				</ControlTemplate.Triggers>
-        			</ControlTemplate>
-        		</Setter.Value>
-        	</Setter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#333333" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{x:Null}" />
+                                <Setter Property="BorderBrush" Value="{x:Null}" />
+                                <Setter Property="Foreground" Value="{x:Null}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#f5e701" />
+                                <Setter Property="BorderBrush" Value="#f5e701"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
-	<Grid>
-		<Image Stretch="UniformToFill" Grid.RowSpan="3" Grid.ColumnSpan="2" Source="/sideline;component/images/grey_bkg.png" />
+    <Grid>
+        <Image Stretch="UniformToFill" Grid.RowSpan="3" Grid.ColumnSpan="2" Source="/sideline;component/images/grey_bkg.png" />
 
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="13"/>
-				<RowDefinition Height="78"/>
-				<RowDefinition Height="858*"/>
-				<RowDefinition Height="110"/>
-			</Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13"/>
+                <RowDefinition Height="78"/>
+                <RowDefinition Height="858*"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
 
-			<Image Stretch="UniformToFill" Grid.RowSpan="4" Margin="0,0,0.333,0.333" Source="/sideline;component/images/big_dialog_bkg.png" />
+            <Image Stretch="UniformToFill" Grid.RowSpan="4" Margin="0,0,0.333,0.333" Source="/sideline;component/images/big_dialog_bkg.png" />
 
-			<!-- Title bar-->
-			<Grid Grid.Row="1">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="50*"/>
-					<ColumnDefinition Width="50*"/>
-				</Grid.ColumnDefinitions>
+            <!-- Title bar-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
 
-				<Label Grid.Column="0"  FontFamily="/sideline;component/fonts/#Squada One" FontSize="72" Foreground="#333333" Margin="20,0,0,0" Content="PRE-GAME" />
-				<Button Grid.Column="1" Style="{StaticResource Flat}" Width="100" HorizontalAlignment="Right" >
-					<Label  FontSize="72" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center"  Foreground="#333333" Content="+"/>
-				</Button>
-			</Grid>
+                <Label Grid.Column="0"  FontFamily="/sideline;component/fonts/#Squada One" FontSize="72" Foreground="#333333" Margin="20,0,0,0" Content="PRE-GAME" />
+                <Button Grid.Column="1" Style="{StaticResource Flat}" Width="100" HorizontalAlignment="Right" >
+                    <Label  FontSize="72" FontFamily="/sideline;component/fonts/#Squada One" VerticalAlignment="Center"  Foreground="#333333" Content="+"/>
+                </Button>
+            </Grid>
 
-			<!-- Content -->
-			<Grid Grid.Row="2" Margin="10,0,10,0">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="90*"/>
-					<RowDefinition Height="70*"/>
-					<RowDefinition Height="600*"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="40*"/>
-					<ColumnDefinition Width="80*"/>
-					<ColumnDefinition Width="40*"/>
-					<ColumnDefinition Width="80*"/>
-				</Grid.ColumnDefinitions>
+            <!-- Content -->
+            <Grid Grid.Row="2" Margin="10,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="600*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
 
-				<Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Home"/>
-				<ComboBox Grid.Column="1" Grid.Row="0" 
+                <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Home"/>
+                <ComboBox Grid.Column="1" Grid.Row="0" 
                           ItemsSource="{Binding Path=Squads}" DisplayMemberPath="Item1" SelectedValuePath="Item2" SelectedValue="{Binding Path=HomeSquad}"
                           diag:PresentationTraceSources.TraceLevel="High"
                           HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="0" VerticalContentAlignment="Center" >
-				</ComboBox>
-				<Label Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Away"/>
-				<ComboBox Grid.Column="3" Grid.Row="0" 
+                </ComboBox>
+                <Label Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" FontSize="58" Foreground="#333333" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="/sideline;component/fonts/#Squada One" Content="Away"/>
+                <ComboBox Grid.Column="3" Grid.Row="0" 
                           ItemsSource="{Binding Path=Squads}" DisplayMemberPath="Item1" SelectedValuePath="Item2" SelectedValue="{Binding Path=AwaySquad}"
                           HorizontalAlignment="Left" Width="600" Height="70" FontFamily="Calibri" FontSize="36" SelectedIndex="1" VerticalContentAlignment="Center" >
-				</ComboBox>
-				<sideline:ToggleTeamButton Grid.Column="1" Grid.Row="1" BackgroundColor="Blue"/>
-			</Grid>
-            
-			<!-- Footer-->
-			<Image Grid.Row="3" Height="7" Source="/sideline;component/images/divider_pixel_template.png" Stretch="Fill" VerticalAlignment="Top" Opacity="0.5" Margin="47,1.704,46.333,0" />
-			<Grid Grid.Row="3" >
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="30"/>
-					<ColumnDefinition Width="619*"/>
-				</Grid.ColumnDefinitions>
+                </ComboBox>
+                <sideline:ToggleTeamButton Grid.Column="1" Grid.Row="1" BackgroundColor="Blue"/>
+                <sideline:ToggleTeamButton Grid.Column="3" Grid.Row="1" BackgroundColor="Blue"/>
 
-				<Grid Grid.Column="1"  >
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="1320*"/>
-						<ColumnDefinition Width="563"/>
-					</Grid.ColumnDefinitions>
+                <Grid Grid.ColumnSpan="4" Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="30*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="378*"/>
+                        <ColumnDefinition Width="334*"/>
+                        <ColumnDefinition Width="233*"/>
+                        <ColumnDefinition Width="231*"/>
+                        <ColumnDefinition Width="339*"/>
+                        <ColumnDefinition Width="379*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Center" Source="/sideline;component/images/pregame_court.png" MouseDown="Image_MouseDown" Grid.ColumnSpan="6" Grid.RowSpan="5"/>
 
-					<StackPanel Orientation="Horizontal" Grid.Column="0" >
-						<Label FontSize="36" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,10,0" Content="Location"/>
-						<TextBox Width="750" Height="70" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="36" Text="San Diego Volleyball Club, Rancho Bernardo, CA"/>
-						<Label FontSize="36" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,10,0" Content="Date"/>
-						<TextBox Width="250" Height="70"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Calibri" FontSize="36" Text="Oct. 22, 2016"/>
-					</StackPanel>
+                    <WrapPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
+                        <views:PlayerControl Width="90" Height="90" Margin="5" />
 
-					<Image Grid.Column="1" Margin="0,15,0,10" HorizontalAlignment="Right" Source="/sideline;component/images/debug_buttons.png" MouseDown="Image_MouseDown"/>
+                    </WrapPanel>
 
 
-				</Grid>
+                    <views:PlayerControl Grid.Column="1" Grid.Row="1" Width="100" Height="100" />
+                    <views:PlayerControl Grid.Column="1" Grid.Row="2" Width="100" Height="100" />
+                    <views:PlayerControl Grid.Column="1" Grid.Row="3" Width="100" Height="100" />
+                    <views:PlayerControl Grid.Column="2" Grid.Row="1" Width="100" Height="100" />
+                    <views:PlayerControl Grid.Column="2" Grid.Row="2" Width="100" Height="100" />
+                    <views:PlayerControl Grid.Column="2" Grid.Row="3" Width="100" Height="100" />
+                    
+                    <Rectangle Grid.Column="3" Grid.Row="2" Width="100" Height="100" Fill="Red" RadiusX="10" RadiusY="10" />
+                </Grid>
+
+            </Grid>
+
+            <!-- Footer-->
+            <Image Grid.Row="3" Height="7" Source="/sideline;component/images/divider_pixel_template.png" Stretch="Fill" VerticalAlignment="Top" Opacity="0.5" Margin="47,1.704,46.333,0" />
+            <Grid Grid.Row="3" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="619*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1320*"/>
+                        <ColumnDefinition Width="563"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" >
+                        <Label FontSize="36" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,10,0" Content="Location"/>
+                        <TextBox Width="750" Height="70" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="36" Text="San Diego Volleyball Club, Rancho Bernardo, CA"/>
+                        <Label FontSize="36" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,10,0" Content="Date"/>
+                        <TextBox Width="250" Height="70"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Calibri" FontSize="36" Text="Oct. 22, 2016"/>
+                    </StackPanel>
+
+                    <Image Grid.Column="1" Margin="0,15,0,10" HorizontalAlignment="Right" Source="/sideline;component/images/debug_buttons.png" MouseDown="Image_MouseDown"/>
 
 
-			</Grid>
-		</Grid>
+                </Grid>
+
+
+            </Grid>
+        </Grid>
 
 
 
-	</Grid>
+    </Grid>
 </Window>

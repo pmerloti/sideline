@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\git\sideline\src\obj\Debug\
+D:\github\sideline\src\obj\Debug\
 sideline
 none
 false
 DEBUG;TRACE
-D:\git\sideline\src\App.xaml
-8-418752969
+D:\github\sideline\src\App.xaml
+9-1238696365
 
-25783721599
-17-1587931409
-MainWindow.xaml;ToggleTeamButton.xaml;views\HistoryView.xaml;views\PreGameView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
+26669803424
+17386890453
+MainWindow.xaml;ToggleTeamButton.xaml;views\HistoryView.xaml;views\PlayerControl.xaml;views\PreGameView.xaml;views\RecordView.xaml;views\SettingsView.xaml;views\SplashView.xaml;views\TeamsView.xaml;
 
-True
+False
 
